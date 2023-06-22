@@ -1,0 +1,23 @@
+
+<%- include("partials/header"); -%>
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+
+  <%  posts.forEach(function(post){ %><!--post is object of posts array-->
+
+    <h1><%=post.title%></h1>
+    <p>
+    <%=post.content.slice(0, 100) + " ..."%>
+    <a href="/posts/<%=post.title%>">Read More</a>
+    </p>
+
+
+    <% }) %>
+    <div class="btnstyle">
+      <form action="/compose" method="get">  <!--get attribute is use to get a page afte clicking.-->
+        <button type="submit" class="btn btn-info">Compose</button>
+      </form>
+  </div>
+
+
+<%- include("partials/footer"); -%>
